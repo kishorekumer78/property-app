@@ -6,10 +6,10 @@ import EmptyState from '@/components/EmptyState';
 import ListingCard from '@/components/listings/ListingCard';
 
 type Props = {
-	searchParams: { userId?: string };
+	things: { userId?: string };
 };
-export default async function Home({ searchParams }: Props) {
-	const listings = await getListings(searchParams);
+export default async function Home({ things }: Props) {
+	const listings = await getListings(things);
 	const currentUser = await getCurrentUser();
 
 	if (listings.length === 0) {
