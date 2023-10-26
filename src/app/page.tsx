@@ -1,16 +1,13 @@
 import { getCurrentUser } from '@/actions/getCurrentUser';
 import { getListings } from '@/actions/getListings';
-import ClientOnly from '@/components/ClientOnly';
+
 import Container from '@/components/Container';
 import EmptyState from '@/components/EmptyState';
 import ListingCard from '@/components/listings/ListingCard';
 
-type Props = {
-	things: { userId?: string };
-};
-export default async function Home({ things }: Props) {
-	const listings = await getListings(things);
+export default async function Home() {
 	const currentUser = await getCurrentUser();
+	const listings = await getListings({ userId: currentUser?.id });
 
 	if (listings.length === 0) {
 		return (
