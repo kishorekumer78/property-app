@@ -2,10 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/libs/prisma';
 import { getCurrentUser } from '@/actions/getCurrentUser';
 
-export async function GET(
-	request: NextRequest,
-	{ params }: { params: { reservationId?: string } }
-) {}
 export async function DELETE(
 	request: NextRequest,
 	{ params }: { params: { reservationId?: string } }
